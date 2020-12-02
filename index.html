@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-        <link rel="stylesheet" href="css/styles-old.css">
+        <link rel="stylesheet" href="css/styles.css">
         
         <link rel="icon" href="img/logo.png" type="image/icon type">
 
@@ -33,7 +33,7 @@
                         <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
                         <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                     </ul>
-                    <span class="navbar-text"><a data-toggle="modal" data-target="#LoginModal"><span class="fa fa-sign-in"></span> Login</a></span>
+                    <span class="navbar-text"><a id="LoginButton"><span class="fa fa-sign-in"></span> Login</a></span>
                 </div>  
             </div>
         </nav>
@@ -42,8 +42,8 @@
             <div class="modal-dialog modal-lg" role="content">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Login</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" style="color: white;">Login</h4>
+                        <button type="button" class="close" id="LoginClose" style="color: white;">&times;</button>
                     </div>
                     <div class="modal-body">
                         <form>
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-secondary btn-sm ml-auto" id="LoginCancel">Cancel</button>
                                 <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
                             </div>
                         </form>
@@ -77,8 +77,8 @@
             <div class="modal-dialog modal-lg" role="content">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Reserve a Table</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" style="color: white;">Reserve a Table</h4>
+                        <button type="button" class="close" id="ReservationClose" style="color: white;">&times;</button>
                     </div>
                     <div class="modal-body">
                         <form>
@@ -131,7 +131,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group offset-md-3 col-md-9">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-secondary" id="ReservationCancel">Cancel</button>
                                     <button type="submit" class="btn btn-primary">Reserve</button>
                                 </div>
                             </div>
@@ -154,7 +154,7 @@
                                 <img src="img/logo.png" class="img-fluid">
                             </div>
                             <div class="col-auto col-md align-self-center">
-                                <a role="button" class="btn btn-block nav-link btn-warning" data-toggle="modal" data-target="#ReservationModal" style="color:black; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;"><strong>Reserve Table</strong></a>
+                                <a role="button" class="btn btn-block nav-link btn-warning" id="ReservationButton" style="color:black; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;"><strong>Reserve Table</strong></a>
                             </div>
                         </div>
                     </div>
@@ -302,7 +302,26 @@
                         $('#carousel-button').children('span').removeClass('fa-play');
                         $('#carousel-button').children('span').addClass('fa-pause');
                     }
-                    
+                });
+
+                $('#LoginButton').click(function () {
+                    $('#LoginModal').modal('show');
+                });
+                $('#LoginClose').click(function () {
+                    $('#LoginModal').modal('hide');
+                });
+                $('#LoginCancel').click(function () {
+                    $('#LoginModal').modal('hide');
+                });
+
+                $('#ReservationButton').click(function () {
+                    $('#ReservationModal').modal('show');
+                });
+                $('#ReservationClose').click(function () {
+                    $('#ReservationModal').modal('hide');
+                });
+                $('#ReservationCancel').click(function () {
+                    $('#ReservationModal').modal('hide');
                 });
             });
         </script>
